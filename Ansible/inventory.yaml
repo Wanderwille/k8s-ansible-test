@@ -1,0 +1,8 @@
+K8SHost: # Помечаем название хостов
+  hosts:
+    192.168.90.139:
+    192.168.90.140:
+  vars:
+    ansible_connections: ssh
+    ansible_user: root
+    ansible_ssh_private_key: /root/.ssh/id_rsa
