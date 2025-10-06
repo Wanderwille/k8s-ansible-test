@@ -1,0 +1,15 @@
+- name: 
+  hosts: all # Хосты для выполнения
+  become: yes # выполнить с помощью повышения привелегий
+  tasks: # задачи
+    - name: # Название таски, например: Установка nginx
+      apt: # менеджер пакетов
+        name: nginx # Установка nginx
+        state: present # Пакет должен быть установлен
+        notify: Restart nginx # Выполнится в конце, при handlers:
+
+  handlers: 
+    - name: Restart nginx # название
+      service: 
+        name: nginx
+        state: restarted

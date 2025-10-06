@@ -1,1 +1,3 @@
-ansible/inventory.yaml
+ansible/inventory/inventory.yaml
+ansible/inventory/group_vars/all.yaml
+ansible/playbook/nginx.yaml
