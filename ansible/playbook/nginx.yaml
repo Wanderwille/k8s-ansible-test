@@ -1,0 +1,24 @@
+- name: Установка nginx и сайта
+  hosts: localhost
+  become: yes
+  vars_files:
+    - ../vars/site.yaml
+  
+  tasks:
+    - name: Установка nginx
+      package:
+        name: nginx
+        state: present
+
+    - name: Копируем шаблон
+      template: 
+        src: ../templates/index.html.j2
+        dest: /var/www/html/index.html
+      notify: Рестарт nginx
+
+  handlers:
+    - name: Рестарт nginx 
+      service: 
+        name: nginx
+        state: restarted    
+        enabled: yes
